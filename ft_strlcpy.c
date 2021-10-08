@@ -10,18 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "ft_libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t  ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 {
 	size_t	src_len;
 	size_t	i;
 
 	i = 0;
 	src_len = ft_strlen(src);
-	if (size != 0)
+	if (dstsize > 0)
 	{
-		while ((i < (size - 1)) && (i < src_len))
+		while ((i < (dstsize - 1)) && (i < src_len))
 		{
 			dst[i] = src[i];
 			i++;
