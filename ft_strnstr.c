@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "ft_libft.h"
-
-#include <stdio.h>
+#include "libft.h"
 
 static int	first_dif_char(const char *s1, const char *s2, unsigned int n)
 {
