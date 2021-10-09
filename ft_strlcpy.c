@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjacoby <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 13:36:26 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/08 13:36:29 by pjacoby          ###   ########.fr       */
+/*   Created: 2021/10/09 12:00:35 by pjacoby           #+#    #+#             */
+/*   Updated: 2021/10/09 12:06:26 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
-size_t  ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	size_t	src_len;
 	size_t	i;
