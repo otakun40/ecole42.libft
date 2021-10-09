@@ -6,7 +6,7 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 14:00:00 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/09 14:19:22 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/09 18:37:05 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	d = (char *)dst;
 	s = (char *)src;
 	i = 0;
-	if (n > 0)
+	while (i < n)
 	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		d[i] = s[i];
+		i++;
 	}
 	return (dst);
 }
