@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	slen = ft_strlen(s);
-    if (start > slen)
+    if (len == 0 || start > slen)
 		return (NULL);
 	else if (start + len > slen)
 		substringlen = slen - start;
