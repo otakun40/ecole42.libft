@@ -18,7 +18,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substring;
-	int		i;
+	size_t	i;
 	size_t	slen;
 	size_t	substringlen;
 

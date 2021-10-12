@@ -18,3 +18,10 @@ FLAGS	:=	-Wall -Werror -Wextra
 
 $(NAME): $(OBJS)
 		ar rcs $(NAME) $(OBJS)
+
+so:
+	gcc -nostartfiles -fPIC $(FLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
+clean:
+	rm *.o a.out libft.a libft.so
