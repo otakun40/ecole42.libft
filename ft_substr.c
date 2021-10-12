@@ -6,7 +6,7 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 00:58:08 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/11 00:58:13 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/12 22:21:01 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	slen = ft_strlen(s);
-    if (len == 0 || start > slen)
+	if (len == 0 || start > slen)
 		return (NULL);
 	else if (start + len > slen)
 		substringlen = slen - start;
