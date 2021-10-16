@@ -22,6 +22,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*temp;
 	char	*result;
 
+	if (!s1 && !s2)
+		return (NULL);
+	else if (!s1)
+		return ((char *)s2);
+	else if (!s2)
+		return ((char *)s1);
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
 	result = (char *)malloc(sizeof(char) * (s1len + s2len + 1));
@@ -36,3 +42,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (result);
 }
+
