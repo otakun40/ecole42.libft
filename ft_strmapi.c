@@ -6,13 +6,11 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 17:05:14 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/16 17:05:18 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/21 23:53:56 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -20,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t		len;
 	char		*result;
 
-    if (s == NULL)
+	if (s == NULL)
 		return (NULL);
 	i = 0;
 	len = ft_strlen(s);

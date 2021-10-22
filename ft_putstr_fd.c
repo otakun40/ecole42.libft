@@ -6,17 +6,17 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 22:17:50 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/12 22:18:01 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/22 00:04:13 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-    if (s)
-    {
-        while (*s)
-            write(fd, s++, 1);
-    }
+	if (s)
+	{
+		while (*s)
+			write(fd, s++, 1);
+	}
 }

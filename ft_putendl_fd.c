@@ -6,18 +6,18 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 22:23:11 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/12 22:52:21 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/21 23:52:47 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-    if (s)
-    {
-        while (*s)
-            write(fd, s++, 1);
-        write (fd, "\n", 1);
-    }
+	if (s)
+	{
+		while (*s)
+			write(fd, s++, 1);
+		write (fd, "\n", 1);
+	}
 }

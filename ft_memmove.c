@@ -10,28 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	buf_len;
-	size_t	i;
-	char	*d;
-	char	*s;
+	char		*d;
+	char		*s;
+	size_t		i;
 
-	buf_len = ft_strlen(dst);
 	d = (char *)dst;
 	s = (char *)src;
-	i = 0;
-	if (len > 0)
+	if (src || dst)
 	{
-		while (i < len && i < buf_len)
+		if (d <= s)
 		{
-			d[i] = s[i];
-			i++;
+			i = -1;
+			while (++i < len)
+				d[i] = s[i];
+		}
+		else
+		{
+			i = (int)len;
+			while (i > 0)
+			{
+				d[i - 1] = s[i - 1];
+				i--;
+			}
 		}
 	}
-	return (dst);
+	return (d);
 }

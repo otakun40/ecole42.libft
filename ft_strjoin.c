@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
+/*   By: pjacoby <pjacoby@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 23:50:03 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/13 23:50:22 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/22 00:17:14 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s);
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -42,4 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (result);
 }
-
