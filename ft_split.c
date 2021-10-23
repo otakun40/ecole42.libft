@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
+/*   By: pjacoby <pjacoby@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 17:57:56 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/16 22:47:41 by                  ###   ########.fr       */
+/*   Created: 2021/10/23 22:46:20 by pjacoby           #+#    #+#             */
+/*   Updated: 2021/10/23 22:46:20 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_count_words(char const *str, char c)
 	int	count;
 
 	count = 0;
-	while (*str == c)
+	while (*str && *str == c)
 		str++;
 	while (*str)
 	{
@@ -35,7 +35,7 @@ static char	*ft_get_word(char const *s, char c)
 	char	*word;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	if (word)
@@ -55,10 +55,29 @@ static char	**ft_get_one_string(const char *string)
 {
 	char	**res;
 
+	if (!*string)
+	{
+		res = (char **) malloc(sizeof(char *) * 1);
+		if (res)
+			res[0] = NULL;
+		return (res);
+	}
 	res = (char **) malloc(sizeof(char *) * 2);
-	res[0] = (char *)string;
-	res[1] = 0;
+	if (res)
+	{
+		res[0] = ft_strdup(string);
+		res[1] = 0;
+	}
 	return (res);
+}
+
+static char	**ft_clear_str_array(char **array)
+{
+	while (*array)
+		free(*array++);
+	free(array);
+	array = NULL;
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -67,25 +86,25 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	char	**result;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	if (c == '\0')
 		return (ft_get_one_string(s));
-	i = 0;
+	i = -1;
 	words = ft_count_words(s, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (result)
+	if (!result)
+		return (NULL);
+	while (++i < words)
 	{
-		while (i < words)
-		{
-			while (*s == c)
-				s++;
-			result[i] = ft_get_word(s, c);
-			while (*s != c)
-				s++;
-			i++;
-		}
-		result[i] = 0;
+		while (*s && *s == c)
+			s++;
+		result[i] = ft_get_word(s, c);
+		if (!result[i])
+			return (ft_clear_str_array(result));
+		while (*s && *s != c)
+			s++;
 	}
+	result[i] = 0;
 	return (result);
 }

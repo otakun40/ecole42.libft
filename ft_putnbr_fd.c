@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
+/*   By: pjacoby <pjacoby@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 22:37:48 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/12 22:37:59 by pjacoby          ###   ########.fr       */
+/*   Created: 2021/10/23 22:46:20 by pjacoby           #+#    #+#             */
+/*   Updated: 2021/10/23 22:52:58 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,17 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	arr[10];
-	long	nb;
-	int		i;
+	long	num;
+	char	c;
 
-	nb = n;
-	i = 0;
-	if (nb < 0)
+	num = n;
+	if (num < 0)
 	{
-		nb *= -1;
-		write(1, "-", 1);
+		num *= -1;
+		write(fd, "-", 1);
 	}
-	while (nb != 0)
-	{
-		arr[i] = nb % 10 + '0';
-		nb /= 10;
-		if (nb != 0)
-			i++;
-	}
-	while (i >= 0)
-	{
-		write(fd, &arr[i], 1);
-		i--;
-	}
+	if (num / 10)
+		ft_putnbr_fd(num / 10, fd);
+	c = num % 10 + '0';
+	write(fd, &c, 1);
 }
