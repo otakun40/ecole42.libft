@@ -6,7 +6,7 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 15:48:54 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/10 15:49:38 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/23 10:40:24 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	while (str1[i] == str2[i] && (i < n - 1))
 		i++;
-	if (str1[i] > str2[i])
-		return (1);
-	if (str1[i] == str2[i])
-		return (0);
-	else
-		return (-1);
+	return (str1[i] - str2[i]);
 }

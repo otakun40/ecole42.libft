@@ -17,11 +17,11 @@ char	*ft_strrchr(const char *s, int c)
 	pos = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			pos = (char *)s;
 		s++;
 	}
-	if (*s == '\0' && c == '\0')
+	if (*s == '\0' && (char)c == '\0')
 		return ((char *)s);
 	return (pos);
 }

@@ -6,7 +6,7 @@
 /*   By: pjacoby <pjacoby@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 22:16:32 by pjacoby           #+#    #+#             */
-/*   Updated: 2021/10/19 14:48:15 by pjacoby          ###   ########.fr       */
+/*   Updated: 2021/10/23 11:21:40 by pjacoby          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new;
-	
-	while (lst)
+	t_list	*result;
+	t_list	*current_new;
+
+	result = NULL;
+	if (lst)
 	{
-		ft_lstadd_back(&new, ft_lstnew());
-		lst = lst->next;
+		while (lst)
+		{
+			current_new = ft_lstnew(f(lst->content));
+			if (!current_new)
+				ft_lstclear(&result, del);
+			ft_lstadd_back(&result, current_new);
+			lst = lst->next;
+		}
 	}
+	return (result);
 }

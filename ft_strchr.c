@@ -12,7 +12,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c && *s)
+	while (*s != (char)c && *s)
 		s++;
 	if (c != 0 && *(char *)s == 0)
 		return (0);
